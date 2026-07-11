@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda</title>
+    <title>Control de Reactivos Químicos</title>
 </head>
 <body>
 
     <header>
-        <h1>Store MiTienda</h1>
+        <h1>BioStock: Gestión de Reactivos</h1>
+        <p>Sistema inteligente para el almacenamiento y control de sustancias químicas</p>
         <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Productos</a>
-            <a href="#">Contacto</a>
+            <a href="#inventario">Inventario</a> | 
+            <a href="#registro">Registrar Reactivo</a> | 
+            <a href="#seguridad">Seguridad (Hojas MSDS)</a>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Bienvenido a Store MiTienda</h2>
-            <p>Explora nuestra amplia gama de productos y encuentra lo que necesitas.</p>
+        
+        <section id="introduccion">
+            <h2>Panel de Control</h2>
+            <p>Bienvenido al esqueleto de la plataforma. Aquí podrás organizar tus reactivos por compatibilidad, revisar fechas de caducidad y mantener tu laboratorio seguro.</p>
         </section>
 
-        <section>
-            <h3>Productos Destacados</h3>
+        <section id="inventario">
+            <h2>Reactivos en Almacén</h2>
+            <p>Lista de sustancias actualmente registradas:</p>
             <ul>
-                <li><a href="#">Producto 1</a></li>
-                <li>Producto 2</li>
-                <li>Producto 3</li>
+                <li><strong>Ácido Clorhídrico (HCl)</strong> - Estante A (Ácidos)</li>
+                <li><strong>Hidróxido de Sodio (NaOH)</strong> - Estante B (Bases)</li>
+                <li><strong>Acetona</strong> - Estante C (Inflamables)</li>
             </ul>
         </section>
 
-        <section>
-            <h3>Productos</h3>
-            <h4>Laptop Gamer</h4>
-            <p>Diferencias entre estructuras HTML:</p>
-            <img src="https://via.placeholder.com/400x200" alt="Estructura HTML básica y semántica">
+        <section id="seguridad">
+            <h2>Comentarios y Alertas de Seguridad</h2>
+            <p><em>Nota: Recuerda no almacenar ácidos junto a bases ni sustancias inflamables cerca de comburentes.</em></p>
         </section>
+
     </main>
+
+    <footer>
+        <p>&copy; 2026 BioStock - Desarrollado por Britany Guaman</p>
+        <p>Contacto de soporte: soporte@biostock.com</p>
+    </footer>
 
 </body>
 </html>
