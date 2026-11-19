@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control de Reactivos Químicos</title>
+    <title>BioStock - Control de Reactivos Químicos</title>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Galindo&family=Geomini&display=swap" rel="stylesheet">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- 1. HEADER -->
+    <!-- 1. HEADER / LANDING -->
     <header>
-        <h1>BioStock: Gestión de Reactivos</h1>
+        <h1 class="title">BioStock: Gestión de Reactivos</h1>
         <p>Sistema inteligente para el almacenamiento y control de sustancias químicas</p>
-        <nav>
-            <a href="#inventario">Inventario</a> | 
-            <a href="#registro">Registrar Reactivo</a> | 
-            <a href="#seguridad">Seguridad (Hojas MSDS)</a>
+        <nav class="main-nav">
+            <ul class="menu">
+                <li><a class="menu-link" href="#inventario">Inventario</a></li>
+                <li><a class="menu-link" href="#asistente-ia">Asistente IA</a></li>
+                <li><a class="menu-link" href="#contacto">Contacto</a></li>
+                <li><a class="menu-link" href="#admin">Panel Admin</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -23,56 +30,214 @@
         
         <section id="introduccion">
             <h2>Panel de Control</h2>
-            <p>Bienvenido a nuestra plataforma. Aquí podrás organizar tus reactivos por compatibilidad, revisar fechas de caducidad y mantener tu laboratorio seguro.</p>
+            <p>Organiza tus reactivos por compatibilidad química, verifica su ubicación y mantén tu laboratorio seguro.</p>
         </section>
 
-        <!-- SECCIÓN REQUERIDA: Catálogo con 3 productos reales en etiquetas <article> -->
-        <section id="inventario">
+        <!-- CATÁLOGO DE REACTIVOS -->
+        <section id="inventario" class="main-content">
             <h2>Reactivos en Almacén (Catálogo)</h2>
             <p>Sustancias disponibles actualmente en el laboratorio:</p>
 
             <!-- Producto 1 -->
-            <article>
-                <h3>Ácido Clorhídrico (HCl)</h3>
-                <p><strong>Concentración:</strong> 37%</p>
-                <p><strong>Ubicación:</strong> Estante A (Ácidos Inorgánicos)</p>
-                <img src="https://filtracionyanalisis.com/wp-content/uploads/2023/08/Acido-chorihidrico.webp" alt="Frasco de vidrio ámbar para almacenamiento de ácidos químicos en un laboratorio">
+            <article class="feature">
+                <h3 class="reactivo-nombre">Ácido Clorhídrico (HCl)</h3>
+                <p class="reactivo-dato"><strong>Concentración:</strong> 37%</p>
+                <p class="reactivo-estante"><strong>Ubicación:</strong> Estante A (Ácidos Inorgánicos)</p>
+                <img src="https://filtracionyanalisis.com/wp-content/uploads/2023/08/Acido-chorihidrico.webp" alt="Frasco de vidrio ámbar con HCl">
             </article>
-
-            <hr> <!-- Una línea divisoria visual -->
 
             <!-- Producto 2 -->
-            <article>
-                <h3>Hidróxido de Sodio (NaOH)</h3>
-                <p><strong>Estado:</strong> Pellets / Sólido</p>
-                <p><strong>Ubicación:</strong> Estante B (Bases Fuertes)</p>
-                <img src="https://www.srlchem.com/SRL/user_img/products/68151/68151-%20Sodium%20Hydroxide%20Pellets.jpg" alt="Vasos de precipitado con soluciones químicas transparentes sobre una mesa de laboratorio">
+            <article class="feature">
+                <h3 class="reactivo-nombre">Hidróxido de Sodio (NaOH)</h3>
+                <p class="reactivo-dato"><strong>Estado:</strong> Pellets / Sólido</p>
+                <p class="reactivo-estante"><strong>Ubicación:</strong> Estante B (Bases Fuertes)</p>
+                <img src="https://www.srlchem.com/SRL/user_img/products/68151/68151-%20Sodium%20Hydroxide%20Pellets.jpg" alt="Frasco de Hidróxido de Sodio">
             </article>
-
-            <hr>
 
             <!-- Producto 3 -->
-            <article>
-                <h3>Acetona</h3>
-                <p><strong>Grado:</strong> ACS (Análisis)</p>
-                <p><strong>Ubicación:</strong> Estante C (Líquidos Inflamables)</p>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnCw1RaykdiuNvPTNeYF5JJL059-OHxL1jNDXiJyACpe1jaN0YOUzwHfJb&s=10" alt="Científico trabajando con envases de solventes orgánicos inflamables en una campana de extracción">
+            <article class="feature">
+                <h3 class="reactivo-nombre">Acetona</h3>
+                <p class="reactivo-dato"><strong>Grado:</strong> ACS (Análisis)</p>
+                <p class="reactivo-estante"><strong>Ubicación:</strong> Estante C (Líquidos Inflamables)</p>
+                <img src="https://www.marbequimica.com.ar/wp-content/uploads/2018/12/Acetona-HPLC-Pharmco-x-4L.jpg" alt="Frasco de Acetona">
             </article>
-
         </section>
 
-        <section id="seguridad">
-            <h2>Comentarios y Alertas de Seguridad</h2>
-            <p><em>Nota: Recuerda no almacenar ácidos junto a bases ni sustancias inflamables cerca de comburentes.</em></p>
+        <!-- IA APLICADA: RECOMENDADOR DE COMPATIBILIDAD QUÍMICA -->
+        <section id="asistente-ia" class="card-section">
+            <h2>Asistente IA de Compatibilidad</h2>
+            <p>Selecciona un tipo de sustancia para recibir recomendación automática de almacenamiento y seguridad:</p>
+            <div class="form-group">
+                <select id="tipo-reactivo">
+                    <option value="">-- Elige una familia química --</option>
+                    <option value="acido">Ácido fuerte (ej. HCl, H2SO4)</option>
+                    <option value="base">Base fuerte (ej. NaOH, KOH)</option>
+                    <option value="inflamable">Líquido inflamable (ej. Acetona, Etanol)</option>
+                    <option value="oxidante">Agente oxidante (ej. Peróxido, Permanganato)</option>
+                </select>
+                <button type="button" class="btn-primary" onclick="consultarIA()">Consultar Recomendación IA</button>
+            </div>
+            <div id="respuesta-ia" class="respuesta-box"></div>
+        </section>
+
+        <!-- CONTACTO REAL -->
+        <section id="contacto" class="card-section">
+            <h2>Solicitud de Reactivos y Contacto</h2>
+            <p>Envía un requerimiento de sustancia o consulta de hojas MSDS al encargado del laboratorio:</p>
+            <form class="form-group" onsubmit="enviarSolicitud(event)">
+                <input type="text" id="nombre-contacto" placeholder="Tu nombre completo" required>
+                <input type="email" id="correo-contacto" placeholder="Correo electrónico" required>
+                <textarea id="mensaje-contacto" rows="3" placeholder="Escribe el reactivo o consulta que necesitas..." required></textarea>
+                <button type="submit" class="btn-primary">Enviar Solicitud</button>
+            </form>
+            <div id="respuesta-contacto" class="respuesta-box"></div>
+        </section>
+
+        <!-- PANEL ADMIN / LOGIN -->
+        <section id="admin" class="card-section">
+            <h2>Panel Administrativo</h2>
+            <p>Inicia sesión para registrar nuevos reactivos en el inventario (Usuario demo: <strong>admin</strong> / Clave: <strong>1234</strong>):</p>
+            <div class="form-group" id="login-form">
+                <input type="text" id="admin-user" placeholder="Usuario">
+                <input type="password" id="admin-pass" placeholder="Contraseña">
+                <button type="button" class="btn-primary" onclick="iniciarSesion()">Ingresar</button>
+            </div>
+
+            <div id="zona-gestion" class="admin-panel">
+                <h3>Registrar Nuevo Reactivo</h3>
+                <div class="form-group">
+                    <input type="text" id="nuevo-nombre" placeholder="Nombre del reactivo (ej. Etanol 96%)">
+                    <input type="text" id="nuevo-dato" placeholder="Concentración o grado">
+                    <input type="text" id="nuevo-estante" placeholder="Ubicación en estante">
+                    <label for="nueva-foto">Foto del reactivo:</label>
+                    <input type="file" id="nueva-foto" accept="image/*">
+                    <button type="button" class="btn-primary" onclick="agregarReactivo()">Agregar al Catálogo</button>
+                </div>
+            </div>
         </section>
 
     </main>
 
     <!-- 3. FOOTER -->
     <footer>
-        <p>&copy; 2026 BioStock - Desarrollado por Britany Guaman</p>
+        <p>© 2026 BioStock - Desarrollado por Britany Guaman</p>
         <p>Contacto de soporte: soporte@biostock.com</p>
     </footer>
+
+    <!-- LÓGICA INTERACTIVA (IA, CONTACTO Y ADMIN) -->
+    <script>
+        function consultarIA() {
+            const tipo = document.getElementById("tipo-reactivo").value;
+            const caja = document.getElementById("respuesta-ia");
+            const consejos = {
+                acido: "Estante A (Ácidos): Almacenar en bandeja antiderrame, lejos de bases fuertes y metales reactivos.",
+                base: "Estante B (Bases): Mantener en envases plásticos cerrados y separados de ácidos inorgánicos.",
+                inflamable: "Estante C (Inflamables): Guardar en gabinete ventilado lejos de fuentes de calor y oxidantes.",
+                oxidante: "Estante D (Oxidantes): Aislar completamente de solventes orgánicos e inflamables."
+            };
+            caja.style.display = "block";
+            caja.textContent = consejos[tipo] || "Selecciona primero una familia química para analizar.";
+        }
+
+        function enviarSolicitud(e) {
+            e.preventDefault();
+            const nombre = document.getElementById("nombre-contacto").value;
+            const caja = document.getElementById("respuesta-contacto");
+            caja.style.display = "block";
+            caja.textContent = `¡Gracias, ${nombre}! Tu solicitud fue registrada correctamente.`;
+            e.target.reset();
+        }
+
+        function iniciarSesion() {
+            const u = document.getElementById("admin-user").value;
+            const p = document.getElementById("admin-pass").value;
+            if (u === "admin" && p === "1234") {
+                document.getElementById("login-form").style.display = "none";
+                document.getElementById("zona-gestion").style.display = "block";
+            } else {
+                alert("Credenciales incorrectas. Usa admin / 1234.");
+            }
+        }
+
+        function agregarReactivo() {
+            const nombre = document.getElementById("nuevo-nombre").value.trim();
+            const dato = document.getElementById("nuevo-dato").value.trim();
+            const estante = document.getElementById("nuevo-estante").value.trim();
+            const inputFoto = document.getElementById("nueva-foto");
+            const archivo = inputFoto.files[0];
+
+            if (!nombre || !dato || !estante) {
+                return alert("Completa nombre, detalle y ubicación.");
+            }
+
+            const crearTarjeta = (urlImagen) => {
+                const grid = document.getElementById("inventario");
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "feature";
+                tarjeta.innerHTML = `
+                    <h3 class="reactivo-nombre">${nombre}</h3>
+                    <p class="reactivo-dato"><strong>Detalle:</strong> ${dato}</p>
+                    <p class="reactivo-estante"><strong>Ubicación:</strong> ${estante}</p>
+                    <img src="${urlImagen}" alt="${nombre}">
+                    <div class="acciones-tarjeta">
+                        <button type="button" class="btn-editar" onclick="editarReactivo(this)">Editar</button>
+                        <button type="button" class="btn-eliminar" onclick="eliminarReactivo(this)">Eliminar</button>
+                    </div>
+                `;
+                grid.appendChild(tarjeta);
+
+                document.getElementById("nuevo-nombre").value = "";
+                document.getElementById("nuevo-dato").value = "";
+                document.getElementById("nuevo-estante").value = "";
+                inputFoto.value = "";
+                alert("Reactivo agregado al catálogo.");
+            };
+
+            if (archivo) {
+                const lector = new FileReader();
+                lector.onload = (evento) => crearTarjeta(evento.target.result);
+                lector.readAsDataURL(archivo);
+            } else {
+                crearTarjeta("https://filtracionyanalisis.com/wp-content/uploads/2023/08/Acido-chorihidrico.webp");
+            }
+        }
+
+        function editarReactivo(boton) {
+            const tarjeta = boton.closest(".feature");
+            const nombreEl = tarjeta.querySelector(".reactivo-nombre");
+            const datoEl = tarjeta.querySelector(".reactivo-dato");
+            const estanteEl = tarjeta.querySelector(".reactivo-estante");
+
+            const nombreActual = nombreEl.textContent.trim();
+            const datoActual = datoEl.textContent.replace("Detalle:", "").trim();
+            const estanteActual = estanteEl.textContent.replace("Ubicación:", "").trim();
+
+            const nuevoNombre = prompt("Editar nombre del reactivo:", nombreActual);
+            if (nuevoNombre === null) return;
+
+            const nuevoDato = prompt("Editar concentración o grado:", datoActual);
+            if (nuevoDato === null) return;
+
+            const nuevoEstante = prompt("Editar ubicación en estante:", estanteActual);
+            if (nuevoEstante === null) return;
+
+            if (nuevoNombre.trim() && nuevoDato.trim() && nuevoEstante.trim()) {
+                nombreEl.textContent = nuevoNombre.trim();
+                datoEl.innerHTML = `<strong>Detalle:</strong> ${nuevoDato.trim()}`;
+                estanteEl.innerHTML = `<strong>Ubicación:</strong> ${nuevoEstante.trim()}`;
+                tarjeta.querySelector("img").alt = nuevoNombre.trim();
+                alert("Reactivo actualizado correctamente.");
+            } else {
+                alert("Ningún campo puede quedar vacío.");
+            }
+        }
+
+        function eliminarReactivo(boton) {
+            if (confirm("¿Seguro que deseas eliminar este reactivo del catálogo?")) {
+                boton.closest(".feature").remove();
+            }
+        }
+    </script>
 
 </body>
 </html>
